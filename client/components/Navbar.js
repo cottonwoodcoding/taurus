@@ -37,7 +37,6 @@ class MaterialNavbar extends React.Component {
       { name: 'Home', url: '/' },
       { name: 'Services', url: '/services' },
       { name: 'Parts', url: '/parts' },
-      { name: 'Location', url: '/location' },
       { name: 'Contact', url: '/contact' },
     ].map( (nav, i) => {
       let p = this.props;

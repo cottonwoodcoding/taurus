@@ -2,7 +2,7 @@ class Api::ServiceCategoriesController < ApplicationController
   before_action :set_service_category, only: [:show, :update, :destroy]
 
   def index
-    render json: ServiceCategory.all
+    @service_categories = ServiceCategory.all
   end
 
   def show
