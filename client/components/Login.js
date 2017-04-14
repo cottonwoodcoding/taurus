@@ -22,7 +22,6 @@ class Login extends React.Component {
           <br />
           <input type='submit' className='btn' />
         </form>
-        <Link to='/sign_up'>Sign Up</Link>
       </div>
     );
   }

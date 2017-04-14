@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 import { handleLogout } from '../actions/auth';
 import { connect } from 'react-redux';
-import logo from '../images/logo-inverted.png';
+import logo from '../images/inverted-taurus-bull.png';
 
 class MaterialNavbar extends React.Component {
   componentDidMount() {
@@ -10,6 +10,7 @@ class MaterialNavbar extends React.Component {
   }
 
   componentDidUpdate() {
+    $(".button-collapse").sideNav({ closeOnClick: true });
   }
 
   logout = (e) => {
@@ -21,7 +22,10 @@ class MaterialNavbar extends React.Component {
     let { auth } = this.props;
     if(auth && auth.isAuthenticated) {
       return(
-        <li> <a href='#' onClick={this.logout}>Logout</a> </li>
+        [
+          <li key="admin"><Link to="/admin">Admin</Link></li>,
+          <li key="logout"> <a href='#' onClick={this.logout}>Logout</a> </li>
+        ]
       )
     } else {
       return(<li> <Link to='/login'><i className="fa fa-gear" /></Link> </li>);
@@ -72,7 +76,7 @@ class MaterialNavbar extends React.Component {
 
 const styles = {
   img: {
-    height: '64px',
+    height: '60px',
   },
   sideNav: {
     zIndex: 999,

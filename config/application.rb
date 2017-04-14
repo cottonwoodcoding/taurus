@@ -18,8 +18,14 @@ Bundler.require(*Rails.groups)
 
 module Taurus
   class Application < Rails::Application
-    # Settings in config/environments/* take precedence over those specified here.
-    # Application configuration should go into files in config/initializers
-    # -- all .rb files in that directory are automatically loaded.
+    config.assets.enabled = true
+    config.assets.paths << "#{Rails.root}/app/assets/fonts"
+    config.generators do |g|
+      g.template_engine nil
+      g.assets false
+      g.helper false
+      g.stylesheets false
+      g.routes false
+    end
   end
 end

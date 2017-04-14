@@ -7,6 +7,9 @@ import SignUp from './components/SignUp';
 import { UserAuthWrapper } from 'redux-auth-wrapper';
 import Loading from './components/Loading';
 import Home from './components/Home';
+import Admin from './components/Admin';
+import DealerServices from './components/DealerServices';
+import AddServices from './components/AddServices';
 
 const UserIsAuthenticated = UserAuthWrapper({
   authSelector: state => state.auth,
@@ -15,6 +18,8 @@ const UserIsAuthenticated = UserAuthWrapper({
   LoadingComponent: Loading
 });
 
+const AdminRoutes = UserIsAuthenticated( (props) => props.children );
+
 export default (
   <Route>
 
@@ -22,8 +27,12 @@ export default (
       <IndexRoute component={Home} />
       <Route path='/login' component={Login} />
       <Route path='/sign_up' component={SignUp} />
+      <Route path='/services' component={DealerServices} />
+      <Route component={AdminRoutes}>
+        <Route path='/admin' component={Admin} />
+        <Route path='/service_categories/:id' component={AddServices} />
+      </Route>
+      <Route path="*" status={404} component={NoMatch} />
     </Route>
-
-    <Route path="*" status={404} component={NoMatch} />
   </Route>
 )

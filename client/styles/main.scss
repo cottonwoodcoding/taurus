@@ -1,8 +1,18 @@
 .backGround {
   width: 100%;
-  height: calc(100vh - 64px);
+  height: calc(40vh - 64px);
   background: url('../images/logo.svg') no-repeat top;
-  background-size: 50% 50%;
+}
+
+.bottomSection {
+  height: 100%;
+  background: #515153;
+  background: linear-gradient(to bottom right, black , white);
+}
+
+.shadow {
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  letter-spacing: 5px;
 }
 
 .brandGrey {

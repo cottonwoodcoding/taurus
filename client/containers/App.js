@@ -4,6 +4,7 @@ import Navbar from '../components/Navbar';
 import FlashMessage from '../components/FlashMessage';
 import { clearFlash } from '../actions/flash';
 import Auth from 'j-toker';
+import { serviceCategories } from '../actions/serviceCategories';
 
 class App extends React.Component {
   componentDidMount() {
@@ -20,6 +21,8 @@ class App extends React.Component {
     .fail( () => {
       history.push('/');
     });
+    
+    dispatch(serviceCategories());
   }
 
   componentDidUpdate() {
